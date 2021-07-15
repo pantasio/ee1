@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  php:
+    environment:
+      - REDIS_HOST=
+      - DB_HOST=db
+    volumes:
+      - "/opt/easyengine/admin-tools:/var/www/htdocs/ee-admin:ro"
+      - "/opt/easyengine/db/ee.sqlite:/opt/easyengine/db/ee.sqlite:ro"
+
+  nginx:
+    volumes:
+      - "/opt/easyengine/admin-tools:/var/www/htdocs/ee-admin:ro"
+      - "/opt/easyengine/db/ee.sqlite:/opt/easyengine/db/ee.sqlite:ro"
